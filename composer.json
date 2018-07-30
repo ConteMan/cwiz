@@ -1,0 +1,27 @@
+{
+    "name": "boxiaozhi/cwiz",
+    "description": "api for wiznote",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "conte",
+            "email": "boxiaozhi.bolu@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "predis/predis": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Boxiaozhi\\Cwiz\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Boxiaozhi\\Cwiz\\Tests\\": "tests/"
+        }
+    }
+}
