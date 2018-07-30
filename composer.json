@@ -1,7 +1,6 @@
 {
     "name": "boxiaozhi/cwiz",
     "description": "api for wiznote",
-    "type": "composer-plugin",
     "license": "MIT",
     "authors": [
         {

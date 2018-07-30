@@ -23,7 +23,7 @@ class CwizServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('cwiz', function(){
-            return new Cwiz();
+            return new Cwiz;
         });
     }
 }
