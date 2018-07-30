@@ -22,5 +22,12 @@
         "psr-4": {
             "Boxiaozhi\\Cwiz\\Tests\\": "tests/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Boxiaozhi\\Cwiz\\CwizServiceProvider"
+            ]
+        }
     }
 }
