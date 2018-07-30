@@ -10,7 +10,7 @@ namespace Boxiaozhi\Cwiz;
 
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\Facades\Cache;
-
+use \Exception;
 class CwizService
 {
     private $client = null;
@@ -28,6 +28,10 @@ class CwizService
     {
         $userId   = config('cwiz.username');
         $password = config('cwiz.password');
+
+        if(!$userId || !$password){
+            throw new Exception('请检查用户名和密码设置', 500);
+        }
 
         $this->prefix = config('cwiz.cache_prefix');
         $this->userKey = $this->prefix.'user';
