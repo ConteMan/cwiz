@@ -6,18 +6,16 @@
  * Time: 18:00
  */
 
-namespace Boxiaozhi\Cwiz\Controllers;
+namespace Boxiaozhi\Cwiz;
 
 
-use Boxiaozhi\Cwiz\Services\Cwiz;
-
-class CwizController
+class Cwiz
 {
     private $cwiz;
 
     public function __construct()
     {
-        $this->cwiz = new Cwiz();
+        $this->cwiz = new CwizService();
     }
 
     public function nav() {

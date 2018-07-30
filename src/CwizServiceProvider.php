@@ -10,7 +10,6 @@ namespace Boxiaozhi\Cwiz;
 
 
 use Illuminate\Support\ServiceProvider;
-use Boxiaozhi\Cwiz\Controllers\CwizController;
 
 class CwizServiceProvider extends ServiceProvider
 {
@@ -24,7 +23,7 @@ class CwizServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('cwiz', function(){
-            return new CwizController;
+            return new Cwiz();
         });
     }
 }

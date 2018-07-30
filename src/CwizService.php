@@ -6,12 +6,12 @@
  * Time: 18:11
  */
 
-namespace Boxiaozhi\Cwiz\Services;
+namespace Boxiaozhi\Cwiz;
 
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\Facades\Cache;
 
-class Cwiz
+class CwizService
 {
     private $client = null;
     private $prefix = '';
