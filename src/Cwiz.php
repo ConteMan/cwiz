@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2018-07-27
- * Time: 18:00
- */
 
 namespace Boxiaozhi\Cwiz;
 
@@ -15,22 +9,53 @@ class Cwiz
 
     public function __construct()
     {
-        $this->cwiz = new CwizService();
+        $this->cwiz = new CwizQueryService();
     }
 
-    public function nav() {
-        $shares = $this->cwiz->shares();
-        $data   = [];
-        foreach($shares['content'] as $share){
-            $data[] = [
-                'to'   => '/note/' . $share['documentGuid'],
-                'name' => $share['documentGuid'],
-                'type' => '',
-                'des'  => $share['title']
-            ];
-        }
-        $default = isset($shares['content'][0]['documentGuid']) ? $shares['content'][0]['documentGuid'] : []; //默认笔记
-        $res = ['default' => $default, 'data' => $data];
-        return response()->json($res);
+    //用户信息
+    public function userInfo()
+    {
+        return $this->cwiz->userInfo();
+    }
+
+    //分享笔记列表
+    public function shares() {
+        return $this->cwiz->shares();
+    }
+
+    //全部标签
+    public function tags()
+    {
+        return $this->cwiz->tags();
+    }
+
+    //目录列表
+    public function category()
+    {
+        return $this->cwiz->category();
+    }
+
+    /**
+     * 笔记详情
+     * @param $docGuid 笔记 Guid
+     * @return mixed
+     */
+    public function noteDetail($docGuid)
+    {
+        return $this->cwiz->noteDetail($docGuid);
+    }
+
+    /**
+     * 根据 标签Guid 获取笔记列表
+     * @param $tagGuid 标签 Guid
+     * @param int $start 开始位置
+     * @param int $count 查询数量
+     * @param string $orderBy 排序字段
+     * @param string $ascending 正序，逆序
+     * @return mixed
+     */
+    public function noteListByTag($tagGuid, $start=0, $count=50, $orderBy='modified', $ascending='desc')
+    {
+        return $this->cwiz->noteListByTag($tagGuid, $start, $count, $orderBy, $ascending);
     }
 }
