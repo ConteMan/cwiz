@@ -58,4 +58,19 @@ class Cwiz
     {
         return $this->cwiz->noteListByTag($tagGuid, $start, $count, $orderBy, $ascending);
     }
+
+    /**
+     * 根据目录获取笔记列表
+     * @param $category
+     * @param int $start
+     * @param int $count
+     * @param string $orderBy
+     * @param string $ascending
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function noteListByCategory($category, $start=0, $count=50, $orderBy='modified', $ascending='desc')
+    {
+        return $this->cwiz->noteListByCategory($category, $start, $count, $orderBy, $ascending);
+    }
 }

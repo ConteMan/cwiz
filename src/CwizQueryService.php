@@ -236,6 +236,33 @@ class CwizQueryService
             'query' => [
                 'token'     => $userInfo['token'],
                 'tag'       => $tagGuid,
+
+                'start'     => $start,
+                'count'     => $count,
+                'orderBy'   => $orderBy,
+                'ascending' => $ascending,
+            ]
+        ];
+        $response = $this->client->request($method, $uri, $param);
+        return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * 根据目录获取笔记列表
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function noteListByCategory($category, $start=0, $count=50, $orderBy='modified', $ascending='desc')
+    {
+        $userInfo = $this->userInfo;
+
+        $method = 'GET';
+        $uri    = '/ks/note/list/category/'.$userInfo['kbGuid'];
+        $param  = [
+            'query' => [
+                'token'     => $userInfo['token'],
+                'category' => $category,
+
                 'start'     => $start,
                 'count'     => $count,
                 'orderBy'   => $orderBy,
